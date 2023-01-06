@@ -47,13 +47,16 @@ class _MyHomePageState extends State<MyHomePage> {
             return Card(
                 child: InkWell(
                     onTap: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) {
-                            return AlertDialog(
-                              title: Text(listItems[index]),
-                            );
-                          });
+                      // showDialog(
+                      //     context: context,
+                      //     builder: (context) {
+                      //       return AlertDialog(
+                      //         title: Text(listItems[index]),
+                      //       );
+                      //     });
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return MySecondPage();
+                      }));
                     },
                     child: Container(
                         height: 60,
@@ -61,5 +64,22 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text(listItems[index]))));
           },
         ));
+  }
+}
+
+class MySecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Second Page"),
+      ),
+      body: Container(
+        color: Colors.lightGreenAccent,
+        child: const Center(
+          child: Text("This is Second Page!"),
+        ),
+      ),
+    );
   }
 }
