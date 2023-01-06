@@ -43,7 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
         body: ListView.builder(
           itemCount: listItems.length,
           itemBuilder: (context, index) {
-            return Text(listItems[index]);
+            return Card(
+                child: Container(
+                    height: 60,
+                    width: double.infinity,
+                    child: Text(listItems[index])));
           },
         ));
   }
