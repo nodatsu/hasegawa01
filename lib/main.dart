@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+
   final String title;
 
   @override
@@ -44,10 +45,20 @@ class _MyHomePageState extends State<MyHomePage> {
           itemCount: listItems.length,
           itemBuilder: (context, index) {
             return Card(
-                child: Container(
-                    height: 60,
-                    width: double.infinity,
-                    child: Text(listItems[index])));
+                child: InkWell(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: Text(listItems[index]),
+                            );
+                          });
+                    },
+                    child: Container(
+                        height: 60,
+                        width: double.infinity,
+                        child: Text(listItems[index]))));
           },
         ));
   }
