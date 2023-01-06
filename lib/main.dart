@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       //       );
                       //     });
                       Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return MySecondPage();
+                        return MySecondPage(listItems[index]);
                       }));
                     },
                     child: Container(
@@ -68,6 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class MySecondPage extends StatelessWidget {
+  MySecondPage(this.value);
+  String value;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,8 +79,8 @@ class MySecondPage extends StatelessWidget {
       ),
       body: Container(
         color: Colors.lightGreenAccent,
-        child: const Center(
-          child: Text("This is Second Page!"),
+        child: Center(
+          child: Text("This is Second Page From: " + value),
         ),
       ),
     );
