@@ -28,22 +28,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final listItems = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'さんぷる',
-            ),
-          ],
+        appBar: AppBar(
+          title: Text(widget.title),
         ),
-      ),
-    );
+        body: ListView.builder(
+          itemCount: listItems.length,
+          itemBuilder: (context, index) {
+            return Text(listItems[index]);
+          },
+        ));
   }
 }
